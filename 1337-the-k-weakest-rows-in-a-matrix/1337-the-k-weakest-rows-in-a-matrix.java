@@ -1,6 +1,6 @@
 class Solution {
     public int[] kWeakestRows(int[][] mat, int k) {
-        PriorityQueue<int []> pq = new PriorityQueue<>((a,b) -> b[0]!=a[0]?b[0]-a[0]:b[1]-a[1]);
+        PriorityQueue<int []> pq = new PriorityQueue<>((a,b) -> b[0]!=a[0]?a[0]-b[0]:a[1]-b[1]);
         
         int ans[] = new int[k];
         
@@ -17,11 +17,17 @@ class Solution {
             pq.offer(new int[]{n,i});
         }
         
-        while(pq.size()>k)
-            pq.poll();
+//         while(pq.size()>k)
+//             pq.poll();
         
-        while(k>0)
-            ans[--k]=pq.poll()[1];
+//         while(k>0)
+//             ans[--k]=pq.poll()[1];
+        
+//         while(pq.size()>0)
+//             System.out.println(Arrays.toString(pq.poll()));
+        int x=0;
+        while(k>x)
+            ans[x++]=pq.poll()[1];
         
         return ans;
     }
