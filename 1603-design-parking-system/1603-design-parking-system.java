@@ -6,7 +6,7 @@ class ParkingSystem {
     
     public boolean addCar(int carType) {
        
-        return arr[carType-1]-- >0;
+        return --arr[carType-1] >=0;
     }
 }
 
