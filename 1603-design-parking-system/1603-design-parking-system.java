@@ -7,11 +7,11 @@ class ParkingSystem {
     }
     
     public boolean addCar(int carType) {
-        if(carType==3 && arr[2]-- >0)
+        if(carType==3 && --arr[2] >=0)
             return true;
-        else if(carType==2 && arr[1]-- >0)
+        else if(carType==2 && --arr[1] >=0)
             return true;
-        else if(carType==1 && arr[0]-- >0)
+        else if(carType==1 && --arr[0] >=0)
             return true;
         
         return false;
