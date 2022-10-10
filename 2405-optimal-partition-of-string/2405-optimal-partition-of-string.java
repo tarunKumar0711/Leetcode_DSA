@@ -1,18 +1,16 @@
 class Solution {
     public int partitionString(String s) {
-        Set<Character> set = new HashSet<>();
-        int count =0;
-        for(char c:s.toCharArray()){
-            if(!set.contains(c)){
-                set.add(c);
+        int pos[] = new int[26];
+        int ans=0,last=0;
+        
+        for(int i=0;i<s.length();i++){
+            if(pos[s.charAt(i)-'a'] >= last){
+                last=i+1;
+                ans++;
             }
-            else{
-                count++;
-                set=new HashSet<>();
-                set.add(c);
-            }
+            pos[s.charAt(i)-'a']=i+1;
         }
         
-        return count+1;
+        return ans;
     }
 }
